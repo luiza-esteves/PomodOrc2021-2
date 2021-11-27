@@ -6,7 +6,7 @@ type ContainerProps = {
 
 export const Container = styled.div(({done}: ContainerProps) => (`
 display: flex;
-background-color: #20212C;
+background-color: #DBD5D0;
 padding: 18px;
 border-radius: 10px;
 margin-bottom: 10px;
@@ -19,7 +19,13 @@ input{
 }
 
 label{
-    color: #ccc;
+    color: #1C1C1C;
     text-decoration: ${done ? 'line-through' : 'initial' };
 }
+
+.tarefa{
+    background-color: red;
+}
+
+
 `));
