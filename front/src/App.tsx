@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import * as C from './App.styles';
 import {Item} from './types/Item';
 import {ListItem} from './components/listItem';
-import { AddArea } from './components/AddArea';
+import './styles.css';
 
 const App = () =>{
   const [list,setList] = useState<Item[]>([
@@ -10,19 +9,22 @@ const App = () =>{
   ]);
 
   return (
-    <C.Container>
-      <C.Area> 
-        <C.Header>Lista de Tarefas</C.Header>
-
-        <AddArea />
-
+    <div className="container">
+      <div className="margemEsquerda"></div>
+      
+      <div>
+      <header className="title"> Lista de Tarefas </header>
+      <div className ="listaTarefas">
         {list.map((item, index)=>(
-          <ListItem key={index} item={item}/>
-        ))}
-        
-      </C.Area>
+            <ListItem key={index} item={item}/>
+          ))}
+      </div>
 
-    </C.Container>
+      </div>
+
+      <div className="margemDireita"></div>
+    
+    </div>
   );
 }
 
