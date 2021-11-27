@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Sahitya:wght@400;700&display=swap');
+
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Sahitya', serif;
+}
+
+.container{
+    display: flex;
+    background-color: #E5E5E5;
+    color: #797a87;
+    width: 100%;
+    height: 100vh;
+}
+
+.margemEsquerda{
+    display: inline-block;
+    width: 9.93%;
+    height: 100vh;
+    background-color:#5E7080;
+}
+
+.margemDireita{
+    display: inline-block;
+    width: 9.93%;
+    height: 100vh;
+    background-color:#5E7080;
+    float: right;
+}
+
+.title{
+    color: #75726F;
+    text-align: center;
+    border: 0.5px solid black;
+    padding-bottom: 20px;
+    background-color: #C4C4C4;
+    height: 50px;
+    width: 600px;
+    left: 313px;
+    top: 56px;
+    border-radius: 30px;
+}
+/* 
+export const Area = styled.div`
+    margin: auto;
+    max-width: 980px;
+    padding: 10px;
+
+    
+`;
+
+export const Header = styled.h1`
+    margin: 0;
+    padding: 0;
+    color: #75726F;
+    text-align: center;
+    border: 1px solid black;
+    padding-bottom: 20px;
+    background-color: #C4C4C4;
+    height: 50px;
+    width: 600px;
+    left: 313px;
+    top: 56px;
+    border-radius: 30px;
+
+`;
+
+*/ 
