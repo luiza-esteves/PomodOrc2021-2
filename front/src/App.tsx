@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import * as C from "./AppStyle";
+import { useState } from 'react';
+import './App.css';
+import { Container, Area, Header, Left, Right } from './App.styles';
 import { Item } from './types/Item';
 import { ListItem } from './Components/ListItem';
 import { AddArea } from './Components/AddArea';
-import { listenerCount } from 'process';
+import { HomeIcon } from './Components/HomeIcon';
 
 const App = () => {
   const [list, setList] = useState<Item[]>([
+    { id: 1, name: 'Ir ao mercado', done: false},
+    { id: 2, name: 'Andar', done: false},
   ]);
 
   const handleAddTask = (taskName: string) => {
@@ -17,7 +20,7 @@ const App = () => {
       done: false
     });
     setList(newList);
-  }
+  };
 
   const handleTaskChange = (id: number, done: boolean) => {
     let newList = [...list];
@@ -29,24 +32,28 @@ const App = () => {
     setList(newList);
   }
 
-  return (
+  return(
     <div>
-      <C.Container>
-        <C.Area>
-          <C.Header>Lista de Tarefas</C.Header>
+      <Container>
+        <Left></Left>
+          <Area>
+            <Header>
+              <HomeIcon></HomeIcon>
+              Lista de Tarefas
+              </Header>
 
-          <AddArea onEnter={handleAddTask} />
+            <AddArea onEnter={handleAddTask} />
 
-          {list.map((item, index) =>(
-            <ListItem 
-            key={index} 
-            item={item}
-            onChange={handleTaskChange}
-            />
-          ))}
-
-        </C.Area>
-      </C.Container>
+            {list.map((item, index)=>(
+              <ListItem 
+              key={index} 
+              item={item}
+              onChange={handleTaskChange} 
+              />
+            ))}
+          </Area>
+        <Right></Right>
+      </Container>
     </div>
   );
 }

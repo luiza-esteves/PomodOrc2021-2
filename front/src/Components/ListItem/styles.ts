@@ -7,7 +7,7 @@ type ContainerProps = {
 export const Container = styled.div(({ done }: ContainerProps)=>(
     `
     display: flex;
-    background-color: #20212C;
+    background-color: #DBD5D0;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -20,7 +20,7 @@ export const Container = styled.div(({ done }: ContainerProps)=>(
     }
 
     label {
-        color: #CCC;
+        color: #75726F;
         text-decoration: ${done ? 'line-through' : 'initial'};
     }
 `

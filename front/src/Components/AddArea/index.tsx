@@ -1,11 +1,11 @@
 import { useState, KeyboardEvent } from 'react';
-import * as C from './style';
+import {Container, Text} from './style';
 
 type Props = {
-    onEnter: (taskName: string) => void 
+    onEnter: (taskName: string) => void
 }
 
-export const AddArea = ( { onEnter }: Props) => {
+export const AddArea = ({ onEnter }: Props) => {
     const [inputText, setInputText] = useState('');
 
     const handleKeyUp = (e: KeyboardEvent) => {
@@ -16,15 +16,18 @@ export const AddArea = ( { onEnter }: Props) => {
     }
 
     return (
-        <C.Container>
+        <Container>
             <div className="image">➕</div>
-            <input 
-                type='text'
-                placeholder='Adicione uma lista de tarefas'
+            <Text>
+            <input
+                type="text"
+                placeholder="Adicione uma lista..."
                 value={inputText}
                 onChange={e=>setInputText(e.target.value)}
                 onKeyUp={handleKeyUp}
             />
-        </C.Container>
+            </Text>
+        </Container>
+        
     );
 }
