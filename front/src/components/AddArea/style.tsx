@@ -17,7 +17,7 @@ export const Container = styled.div`
 `;
 export const Text = styled.div`
     input {
-        margin-left: -160px;
+        margin-left: -165px;
         border: 0px;
         background: transparent;
         outline: 0;
