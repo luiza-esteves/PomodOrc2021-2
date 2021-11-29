@@ -9,8 +9,8 @@ display: flex;
 background-color: #DBD5D0;
 padding: 18px;
 border-radius: 10px;
-margin-bottom: 10px;
-align-items: center;
+margin-bottom: 5px;
+align-items: justify;
 
 input{
     width: 20px;
