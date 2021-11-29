@@ -39,7 +39,7 @@ const App = () => {
           <Area>
             <Header>
               <HomeIcon></HomeIcon>
-              Lista de Tarefas
+              Listas de Tarefas
               </Header>
 
             <AddArea onEnter={handleAddTask} />
