@@ -21,11 +21,21 @@ input{
 label{
     color: #1C1C1C;
     text-decoration: ${done ? 'line-through' : 'initial' };
+    width:20px;
 }
 
-.tarefa{
-    background-color: red;
+.task{
+    display: flex;
+    align-items: center;
+    margin: 6px;
+    width: 200px;
 }
 
+
+.tarefas{
+    color: black;
+    font-size: 20px;
+    width:20px;
+}
 
 `));

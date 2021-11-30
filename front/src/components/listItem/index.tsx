@@ -1,13 +1,11 @@
 import * as C from './styles';
 import {Item} from  '../../types/Item';
 import { useState } from 'react';
-import {ReactComponent as CLose} from '../../assets/close.svg';
-import {ReactComponent as CLock} from '../../assets/clock.svg';
-import {ReactComponent as Check} from '../../assets/check.svg';
-import {ReactComponent as Edit} from '../../assets/edit.svg'
+import { AddArea } from '../AddArea';
+
 
 type Props = {
-    item: Item
+    item: Item;
 }
 
 export const ListItem = ({item}: Props) => {
@@ -16,18 +14,23 @@ export const ListItem = ({item}: Props) => {
     return (
         
         <C.Container done={isChecked} className = "tarefa">
-            <Edit />
+
+            <div className="task">
            <input 
+           className="tasklist"
             type="checkbox" 
             checked ={isChecked}
             onChange = {e => setIsChecked(e.target.checked)}
             />
+           
            <label className="tarefas"> 
                {item.name} 
-                <CLose />
-                <CLock />
-                <Check />
+                
             </label>
+            </div>
+
+            
+            
         </C.Container>
     );
 }
