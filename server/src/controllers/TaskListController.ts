@@ -39,7 +39,7 @@ export default class TaskListController{
     updateOneTask = async(req: Request, res: Response) => {
         const {id} = req.params;
 
-        try {
+        try { 
             const task = await taskList.findById(id);
             if(!task){
                 res.status(400).json({message: "Tasklist não existe"});
