@@ -4,11 +4,11 @@ import {ReactComponent as Editar} from '../../assets/editar.svg'
 import {ReactComponent as Play} from '../../assets/play.svg'
 import { useState, useEffect, BaseSyntheticEvent } from "react"
 import {ReactComponent as Reiniciar} from '../../assets/reiniciar.svg'
-
+import { Link } from "react-router-dom";
 
 
 const Timerbuttons = () => {
-    const [min, setMin] = useState(1)
+    const [min, setMin] = useState(25)
     const [sec, setSec] = useState(0)
     const [start, setStart] = useState(false)
     const [pause, setPause] = useState(false)
@@ -17,7 +17,7 @@ const Timerbuttons = () => {
     const [fulltime, setFulltime] = useState(min*60+sec)
     const [edit, setEdit] = useState(false)
 
-    const minValidation = `${stop ? "01" : min < 10 ? `0${min}` : min}`
+    const minValidation = `${stop ? "25" : min < 10 ? `0${min}` : min}`
 
     const handletime = () => {
         setEdit(false)
@@ -80,7 +80,7 @@ const Timerbuttons = () => {
         pauseTime()
         setStop(true)
         setTimeout(() => {
-            setMin(1)
+            setMin(25)
             setSec(0)
             setFulltime(60)
             setbarProgress(100)
@@ -111,12 +111,12 @@ const Timerbuttons = () => {
                 )
             }
             
-            <div className="Backprogressbar">
-                <div className="Progress" style={{ width: `${stop ? 100 : barProgress}%`}}/>
-            </div>
             <section className="Timerbuttonscontainer">
+            {/* <div className="Backprogressbar">
+                <div className="Progress" style={{ width: `${stop ? 100 : barProgress}%`}}/>
+            </div> */}
                 <button className="Timerbuttons">
-                    <Casa width="70%" height="70%"/>
+                    <Link to="/"><Casa width="70%" height="70%"/></Link>
                 </button>
 
                 <button className="Timerbuttons" onClick={start ? pauseTime : handletime}> 

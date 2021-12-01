@@ -1,11 +1,12 @@
 import {Container} from './style';
-import { IoHomeSharp } from 'react-icons/io5'
+import {ReactComponent as Casa} from '../../assets/home.svg'
+import { Link } from "react-router-dom";
 
 export const HomeIcon = () => {
     return (
         <Container>
-            <button className="HomeIcon">
-            <IoHomeSharp size={48} />
+            <button className="Casa">
+            <Link to="/"><Casa width="70%" height="70%"/></Link>
             </button>
         </Container>
     );

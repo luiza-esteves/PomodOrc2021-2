@@ -1,15 +1,21 @@
 import Timerbuttons from "../../Components/Timerbuttons"
-import './style.css'
+import { Container, Area, Header, Left, Right } from './style';
 
 const Pomodoro = () => {
     return (
-        <div className="all">
-            <div className="MargemE"></div>
-            <div className="MargemD"></div>
-            <section className="Pomodorocontainer">
-                <Timerbuttons />
-            </section>
+       <div>
+           <Container>
+               <Left></Left>
+                <Area>
+                    <Header>Pomodoro</Header>
+                        <div>
+                            <Timerbuttons />
+                        </div>
+                </Area>
+                <Right></Right>
+            </Container>
         </div>
+            
         
     )
 }
