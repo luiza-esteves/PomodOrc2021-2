@@ -4,6 +4,7 @@ import { Container, Area, Header, Left, Right } from './App.styles';
 import { Item } from './types/Item';
 import { ListItem } from './components/ListItem';
 import { AddArea } from './components/AddArea';
+import { HomeIcon } from './components/HomeIcon';
 
 const App = () => {
   const [list, setList] = useState<Item[]>([
@@ -29,6 +30,10 @@ const App = () => {
       }
     }
     setList(newList);
+  ;}
+
+  const handleDeleteTask = (taskName: string) => {
+    console.log(taskName)
   }
 
   return(
@@ -36,15 +41,18 @@ const App = () => {
       <Container>
         <Left></Left>
           <Area>
-            <Header>Lista de Tarefas</Header>
+            <Header>
+              Lista de Tarefas
+              <HomeIcon></HomeIcon>
+            </Header>
 
-            <AddArea onEnter={handleAddTask} />
+            <AddArea onEnter={handleAddTask}/>
 
             {list.map((item, index)=>(
               <ListItem 
               key={index} 
               item={item}
-              onChange={handleTaskChange} 
+              onChange={handleTaskChange}
               />
             ))}
           </Area>

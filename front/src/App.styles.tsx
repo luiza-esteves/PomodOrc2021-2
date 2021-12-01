@@ -12,6 +12,7 @@ export const Area = styled.div`
     margin: auto;
     max-width: 980px;
     padding:30px;
+    height: 100vh
 `;
 
 export const Header = styled.h1`

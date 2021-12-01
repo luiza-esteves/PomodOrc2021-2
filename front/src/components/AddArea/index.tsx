@@ -8,6 +8,7 @@ type Props = {
 export const AddArea = ({ onEnter }: Props) => {
     const [inputText, setInputText] = useState('');
 
+    
     const handleKeyUp = (e: KeyboardEvent) => {
         if(e.code === 'Enter' && inputText !== '') {
             onEnter(inputText);
@@ -17,11 +18,10 @@ export const AddArea = ({ onEnter }: Props) => {
 
     return (
         <Container>
-            <div className="image">➕</div>
             <Text>
             <input
                 type="text"
-                placeholder="Adicione uma lista..."
+                placeholder="Add a list and press Enter"
                 value={inputText}
                 onChange={e=>setInputText(e.target.value)}
                 onKeyUp={handleKeyUp}

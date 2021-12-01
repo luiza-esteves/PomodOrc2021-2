@@ -10,14 +10,10 @@ export const Container = styled.div`
     margin: 20px 0;
     display: flex;
     align-items: center;
-
-    .image {
-        margin-right: 5px;
-    }
 `;
 export const Text = styled.div`
     input {
-        margin-left: -165px;
+        margin-left: 10px;
         border: 0px;
         background: transparent;
         outline: 0;
