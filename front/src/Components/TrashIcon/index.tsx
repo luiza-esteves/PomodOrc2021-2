@@ -1,5 +1,5 @@
 import {Container} from './style';
-import { FaTrashAlt } from 'react-icons/fa'
+import { FaTrashAlt } from 'react-icons/fa';
 
 export const TrashIcon = () => {
     return (

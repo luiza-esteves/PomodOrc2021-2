@@ -8,3 +8,8 @@
     box-sizing: border-box;
     font-family: 'Sahitya', serif;
 }
+
+:root {
+    --primary: #F5EEE9;
+    --secundary: #5e7080;
+}

@@ -1,0 +1,19 @@
+
+.MargemE {
+    width: 10%;
+    height: 100vh;
+    display: flex;
+    background-color: #5E7080;
+    position: fixed;
+
+}
+
+.MargemD {
+    display: flex;
+    position: fixed;
+    width: 10%;
+    height: 100vh;
+    margin-left: 90%;
+    background-color: #5E7080;
+
+}
