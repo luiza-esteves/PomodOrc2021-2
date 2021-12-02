@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 import { Container, ButContainer, Area, Header, Left, Right } from './style';
+
 const Home = () => {
     return (
         <div>
             <Container>
                 <Left></Left>
                     <Area>
-                        <Header>
+                        <Header className="FontHeader">
                         Pomodorc
                         </Header>
                             <ButContainer>
-                                osdosaodad
-                                <button className="initButtons">
+                                <button className="initButton1">
                                     <Link to="/pomodoro"> Pomodoro Independente</Link>
                                 </button>
-                            <button className="initButtons">
+                            <button className="initButton2">
                                 <Link to="/ListTasks"> Pomodoro por Lista de Tarefas</Link>
                             </button>
                             </ButContainer>

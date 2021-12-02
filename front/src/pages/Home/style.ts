@@ -41,12 +41,33 @@ export const Right = styled.div`
     `;
 
 export const ButContainer = styled.div `
-    height: 30px;
-    background-color: blue;
-    margin-top: 30%;
+    height: 350px;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .initButtons {
+
+    
+
+    .initButton1 {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-color: transparent;
+        background-color: #BDE0FF;
+        height: 40px;
+        width: 280px;
+        border-radius: 10px;
+        margin-bottom: 10%;
+       
+    }
+
+    .initButton2 {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-color: transparent;
+        background-color: #BDE0FF;
+        height: 40px;
+        width: 280px;
+        border-radius: 10px;
     }
 `;
