@@ -55,7 +55,7 @@
     height: 60px;
     width: 600px;
     border-radius: 30px;
-    margin-left: 10%;;
+    margin-left: 20%;;
     text-align: center;
     font-size: 40px;
     margin-top: 20px;
@@ -78,6 +78,8 @@
   
   .todo-input::placeholder {
     color: #e2e2e2;
+
+   
   }
   
   button:hover{
@@ -85,6 +87,7 @@
     background:#F5F5F5;
     color:#000000;
     font-size:102%;
+    cursor: pointer;
   }
 
 
@@ -151,6 +154,7 @@
     width: 320px;
     background-color: #C4C4C4;
     color:black;
+    font-size: 20px;
   }
 
   .task-button{
