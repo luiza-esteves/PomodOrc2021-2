@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import Task from './Task';
 import {ReactComponent as Back} from '../../assets/back.svg';
-
+import './Style.css'
 import TaskForm from "./Taskform";
+import { Link } from 'react-router-dom';
 
 function TaskList() {
     const [tasks, setTasks] = useState([]);
@@ -45,9 +46,9 @@ function TaskList() {
     return (
         
         <div>
-            <div className="back">
-                <Back className="back-icon"/>
-            </div>
+            <button className="back" >
+             <Link to="/ListTasks"><Back className="back-icon" /></Link>
+            </button>
             <h1>Tarefas da lista </h1>
             <TaskForm onSubmit={addTask} />
             <Task 

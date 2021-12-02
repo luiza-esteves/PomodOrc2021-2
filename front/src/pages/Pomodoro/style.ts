@@ -16,7 +16,7 @@ export const Area = styled.div`
    
 `;
 
-export const Header = styled.h1`
+export const Header = styled.h2`
     margin: 0;
     padding: 0;
     color: #75726F;
