@@ -1,7 +1,5 @@
-import { time } from 'console';
 import { JsonWebTokenError } from 'jsonwebtoken';
 import {model, Schema} from 'mongoose';
-import taskListSchema from './taskListSchema';
 
 const taskSchema = new Schema({
     title:{
@@ -18,17 +16,18 @@ const taskSchema = new Schema({
     },
 
     tempo:{
-        type: time,
+        type: Number,
         required: true,
-        unique: false
+        unique: false,
+        default: 0
        
     }, 
 
     taskListId:{
-        type: taskListSchema.findById,
+        type: String,
         required: true,
         unique: false
     }
 })
  
-export default model("taskList", taskSchema);
+export default model("Task", taskSchema);

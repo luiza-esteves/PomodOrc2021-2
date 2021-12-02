@@ -1,6 +1,6 @@
 import { useState, KeyboardEvent } from 'react';
 import * as C from './styles';
-import handleAddTask from '../../pages/Tasks'
+
 
 
 type Props = {

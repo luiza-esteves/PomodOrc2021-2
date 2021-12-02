@@ -25,4 +25,4 @@ taskRoutes.delete('/:id', (req, res) =>{
     taskController.deleteOneTask(req,res);
 });
 
-export default taskController;
+export default taskRoutes;

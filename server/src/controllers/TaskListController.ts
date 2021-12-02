@@ -1,10 +1,10 @@
 import {Request, Response} from 'express';
-import taskList from '../models/taskListSchema';
+import TaskList from '../models/taskListSchema';
 
 export default class TaskListController{
     createTaskList = async(req: Request, res: Response) => {
         try {
-            await taskList.create(req.body);
+            await TaskList.create(req.body);
             res.status(200).json({message: "Task List criada com sucesso"});
         } catch (error) { 
             console.log(error);
@@ -14,7 +14,7 @@ export default class TaskListController{
 
     getAllTasks = async(req: Request, res: Response) => {
         try {
-            const response = await taskList.find();
+            const response = await TaskList.find();
             res.status(200).json(response);
 
         } catch (error) {
@@ -27,7 +27,7 @@ export default class TaskListController{
         const {id} = req.params;
 
         try {
-            const response = await taskList.findById(id);
+            const response = await TaskList.findById(id);
             res.status(200).json(response);
 
         } catch (error) {
@@ -40,7 +40,7 @@ export default class TaskListController{
         const {id} = req.params;
 
         try { 
-            const task = await taskList.findById(id);
+            const task = await TaskList.findById(id);
             if(!task){
                 res.status(400).json({message: "Tasklist não existe"});
             }
@@ -57,7 +57,7 @@ export default class TaskListController{
         const {id} = req.params;
 
         try {
-            await taskList.findByIdAndDelete(id);
+            await TaskList.findByIdAndDelete(id);
             res.status(200).json({message: "tasklist deletada com sucesso"});
 
         } catch (error) {

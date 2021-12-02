@@ -1,25 +1,33 @@
 import {Request, Response} from 'express';
-import task from '../models/taskSchema';
+import Task from '../models/taskSchema';
+import TaskList from '../models/taskListSchema';
 
 export default class TaskController{
     createTask = async(req: Request, res: Response) => {
+        const {taskListId} = req.body;
         try {
-            await task.create(req.body);
-            res.status(200).json({message: "Task criada com sucesso"});
+            
+            const taskListVerification = await TaskList.findById(taskListId);
+            if(!taskListVerification){
+                return res.status(404).json("tasklist não encontrada");
+            }
+            await Task.create(req.body);
+            
+            return res.status(200).json({message: "Task criada com sucesso"});
         } catch (error) { 
-            console.log(error);
-            res.status(400).json({message: "erro ao criar a task"});
+            console.log(error); 
+            return res.status(400).json({message: "erro ao criar a task"});
         }
     }
 
     getAllTasks = async(req: Request, res: Response) => {
         try {
-            const response = await task.find();
-            res.status(200).json(response);
+            const response = await Task.find();
+            return res.status(200).json(response);
 
         } catch (error) {
             console.log(error);
-            res.status(400).json({message: "erro ao pegar todas as tasks"});
+            return res.status(400).json({message: "erro ao pegar todas as tasks"});
         }
     }
 
@@ -27,12 +35,12 @@ export default class TaskController{
         const {id} = req.params;
 
         try {
-            const response = await task.findById(id);
-            res.status(200).json(response);
+            const response = await Task.findById(id);
+            return res.status(200).json(response);
 
         } catch (error) {
             console.log(error);
-            res.status(400).json({message: "erro ao pegar a task"});
+            return res.status(400).json({message: "erro ao pegar a task"});
         }
     }
 
@@ -40,16 +48,16 @@ export default class TaskController{
         const {id} = req.params;
 
         try { 
-            const tasks = await task.findById(id);
-            if(!task){
-                res.status(400).json({message: "Task não existe"});
+            const tasks = await Task.findById(id);
+            if(!Task){
+                return res.status(400).json({message: "Task não existe"});
             }
-            await task.updateOne(req.body);
-            res.status(200).json({message: "task atualizada com sucesso"});
+            await Task.updateOne(req.body);
+            return res.status(200).json({message: "task atualizada com sucesso"});
 
         } catch (error) {
             console.log(error);
-            res.status(400).json({message: "falha ao atualizar task"});
+            return res.status(400).json({message: "falha ao atualizar task"});
         }
     }
 
@@ -57,12 +65,12 @@ export default class TaskController{
         const {id} = req.params;
 
         try {
-            await task.findByIdAndDelete(id);
-            res.status(200).json({message: "task deletada com sucesso"});
+            await Task.findByIdAndDelete(id);
+            return res.status(200).json({message: "task deletada com sucesso"});
 
         } catch (error) {
             console.log(error);
-            res.status(400).json({message: "erro ao deletar a task"});
+            return res.status(400).json({message: "erro ao deletar a task"});
         }
     }
 }
