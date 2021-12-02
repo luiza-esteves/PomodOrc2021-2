@@ -36,6 +36,7 @@ const Task = ({tasks, completeTask, updateTask,removeTask}) => {
                 onClick={() => setEdit({ id: task.id, value: task.text})}
                 className='edit-icon'
                 />
+                <CLock className='clock-icon'/>
             </div>
         </div>
     ));

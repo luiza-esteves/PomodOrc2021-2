@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import Task from './Task';
+import {ReactComponent as Back} from '../../assets/back.svg';
+
 import TaskForm from "./Taskform";
 
 function TaskList() {
@@ -41,7 +43,11 @@ function TaskList() {
     };
 
     return (
+        
         <div>
+            <div className="back">
+                <Back className="back-icon"/>
+            </div>
             <h1>Tarefas da lista </h1>
             <TaskForm onSubmit={addTask} />
             <Task 

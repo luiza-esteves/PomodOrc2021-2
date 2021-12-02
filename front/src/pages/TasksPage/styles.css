@@ -95,16 +95,22 @@
     cursor: pointer;
     width: 100px;
   }
-  
-  .delete-icon {
+  .back{
+    width: 100px;
+    height: 30px;
+  }
+
+  .back-icon {
     margin-right: 10px;
     color: #fff;
     width: 30px;
+    height: 30px;
   }
 
-  .delete-icon:hover{
-    color: red;
-    font-size: 110%;
+ 
+  .delete-icon {
+    margin-left: 10px;
+    width: 30px;
   }
   
   .edit-icon {
@@ -112,9 +118,26 @@
     width: 30px;
   }
 
+  .clock-icon {
+    color: #fff;
+    width: 30px;
+  }
+
   .edit-icon:hover{
-    color: yellow;
-    font-size: 110%;
+    height: 40px;
+  }
+  .clock-icon:hover{
+    height: 40px;
+  }
+
+  .delete-icon:hover{
+    height: 40px;
+  }
+
+  .back-icon:hover{
+    height: 50px;
+    cursor: pointer;
+    
   }
 
   .task-input{
