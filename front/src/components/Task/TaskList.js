@@ -42,7 +42,7 @@ function TaskList() {
 
     return (
         <div>
-            <h1>Organize seus planos para hoje!</h1>
+            <h1>Tarefas da lista </h1>
             <TaskForm onSubmit={addTask} />
             <Task 
                 tasks = {tasks}

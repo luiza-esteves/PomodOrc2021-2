@@ -27,7 +27,7 @@ const Task = ({tasks, completeTask, updateTask,removeTask}) => {
             className={task.isComplete ? 'task-row complete' : 'task-row'}
             key={index}
             >
-            <div key={task.id} onClick={() => completeTask(task.id)}>
+            <div className = "name" key={task.id} onClick={() => completeTask(task.id)}>
                 {task.text}
             </div>
             <div className='icons'>
