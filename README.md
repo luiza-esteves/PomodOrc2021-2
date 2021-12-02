@@ -6,6 +6,61 @@ Boilerplate para o trabalho final do processo trainee.
 
 Para realizar o trabalho, o responsável do grupo deve realizar um fork para um repositório pessoal, e seguir o desenvolvimento a partir do repositório criado.
 
+### Para rodar o projeto
+
+1. Primeiramente instalar Nodejs, yarn, docker, e docker-compose
+
+2. No windows (ja tendo navegado até o diretorio do projeto):
+   * Na primeira vez:
+
+    ```bash
+    cd front
+    yarn install
+    cd ..
+    docker-compose up --build
+    ```
+
+   * Nas vezes subsequentes:
+
+     * Se não instalou novas dependencias:
+
+        ```bash
+         docker-compose up
+         ```
+
+     * Se instalou novas dependencias:
+
+        ```bash
+        docker-compose up --build
+        ```
+
+3. No linux (ja tendo navegado até o diretorio do projeto):
+
+   * Na primeira vez:
+
+    ```bash
+    cd front
+    yarn install
+    cd ..
+    sudo docker-compose up --build
+    ```
+
+   * Nas vezes subsequentes:
+
+     * Se não instalou novas dependencias:
+
+        ```bash 
+        sudo docker-compose up
+        ```
+
+     * Se instalou novas dependencias:
+
+        ```bash
+        sudo docker-compose up --build
+        ```
+
+
+
 ## Backlog do produto
 
 |Épico|Feature|US|Descrição|
