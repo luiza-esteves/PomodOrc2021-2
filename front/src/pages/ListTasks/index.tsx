@@ -8,8 +8,6 @@ import '../../App.css';
 
 const ListTasks = () => {
   const [list, setList] = useState<Item[]>([
-    { id: 1, name: 'Ir ao mercado', done: false},
-    { id: 2, name: 'Andar', done: false},
   ]);
 
   const handleAddTask = (taskName: string) => {

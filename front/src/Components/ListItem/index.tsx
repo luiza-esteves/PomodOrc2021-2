@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import * as C from './styles';
 import { Item } from '../../types/Item';
 import { TrashIcon } from '../TrashIcon';
+import { Link } from "react-router-dom";
 
 type Props = {
     item: Item,
@@ -17,7 +17,9 @@ export const ListItem = ({ item, onChange }: Props) => {
                 checked={item.done}
                  onChange={e => onChange(item.id, e.target.checked)}
             />
-            <label>{item.name}</label>
+            <button>
+            <Link to="/tasklist">{item.name}</Link>  
+            </button>
             <TrashIcon></TrashIcon>
         </C.Container>
 
