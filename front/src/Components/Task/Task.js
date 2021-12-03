@@ -3,7 +3,6 @@ import TaskForm from './Taskform';
 import {ReactComponent as Close} from '../../assets/close.svg';
 import {ReactComponent as CLock} from '../../assets/clock.svg';
 import {ReactComponent as Edit} from '../../assets/edit.svg';
-import { link } from 'fs';
 import { Link } from "react-router-dom";
 
 const Task = ({tasks, completeTask, updateTask,removeTask}) => {

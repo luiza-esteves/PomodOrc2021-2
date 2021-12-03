@@ -4,21 +4,17 @@ import { TrashIcon } from '../TrashIcon';
 import { Link } from "react-router-dom";
 
 type Props = {
-    item: Item,
-    onChange : (id: number, done: boolean) => void
+    item: ITaskList,
+
 }
 
-export const ListItem = ({ item, onChange }: Props) => {
+export const ListItem = ({ item }: Props) => {
 
     return (
-        <C.Container done={item.done}>
-            <input 
-                type="checkbox" 
-                checked={item.done}
-                 onChange={e => onChange(item.id, e.target.checked)}
-            />
+        <C.Container done={false}>
+            
             <button>
-            <Link className="Color" to="/tasklist">{item.name}</Link>  
+            <Link className="Color" to="/tasklist">{item.title}</Link>  
             </button>
             <TrashIcon></TrashIcon>
         </C.Container>

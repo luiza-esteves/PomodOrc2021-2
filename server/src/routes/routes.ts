@@ -6,6 +6,6 @@ import taskRoutes from './taskRoutes';
 const router = Router();
 
 router.use('/tasklist', taskListRoutes);
-router.use('task', taskRoutes);
+router.use('/task', taskRoutes);
 
 export default router;
