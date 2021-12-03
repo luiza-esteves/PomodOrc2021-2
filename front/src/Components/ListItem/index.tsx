@@ -18,7 +18,7 @@ export const ListItem = ({ item, onChange }: Props) => {
                  onChange={e => onChange(item.id, e.target.checked)}
             />
             <button>
-            <Link to="/tasklist">{item.name}</Link>  
+            <Link className="Color" to="/tasklist">{item.name}</Link>  
             </button>
             <TrashIcon></TrashIcon>
         </C.Container>
