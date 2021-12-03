@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container, ButContainer, Area, Header, Left, Right } from './style';
+import "./Font.css"
 
 const Home = () => {
     return (
@@ -12,10 +13,10 @@ const Home = () => {
                         </Header>
                             <ButContainer>
                                 <button className="initButton1">
-                                    <Link to="/pomodoro"> Pomodoro Independente</Link>
+                                    <Link className="Color" to="/pomodoro"> Pomodoro Independente</Link>
                                 </button>
                             <button className="initButton2">
-                                <Link to="/ListTasks"> Pomodoro por Lista de Tarefas</Link>
+                                <Link className="Color" to="/ListTasks"> Pomodoro por Lista de Tarefas</Link>
                             </button>
                             </ButContainer>
                     </Area>

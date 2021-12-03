@@ -35,9 +35,9 @@ const ListTasks = () => {
       <Container>
         <Left></Left>
           <Area>
+          <HomeIcon></HomeIcon>
             <Header>
-              <HomeIcon></HomeIcon>
-              Listas de Tarefas
+            Listas de Tarefas
               </Header>
 
             <AddArea onEnter={handleAddTask} />

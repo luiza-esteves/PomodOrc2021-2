@@ -27,11 +27,10 @@ export const AddArea = ({ onEnter }: Props) => {
 
     return (
         <Container>
-            <div> Pressione Enter </div>
             <Text>
             <input
                 type="text"
-                placeholder="Adicione uma lista..."
+                placeholder="Adicione uma lista e pressione Enter"
                 value={inputText}
                 onChange={e =>setInputText(e.target.value)}
                 onKeyUp={handleKeyUp}

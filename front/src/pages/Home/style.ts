@@ -16,7 +16,7 @@ export const Area = styled.div`
    
 `;
 
-export const Header = styled.h1`
+export const Header = styled.h2`
     margin: 0;
     padding: 0;
     color: #363433;
@@ -49,7 +49,9 @@ export const ButContainer = styled.div `
     align-items: center;
 
 
-    
+    .Color {
+        color: black;
+    }    
 
     .initButton1 {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -59,7 +61,7 @@ export const ButContainer = styled.div `
         width: 280px;
         border-radius: 10px;
         margin-bottom: 10%;
-       
+        text-decoration: none
     }
 
     .initButton2 {
@@ -69,5 +71,6 @@ export const ButContainer = styled.div `
         height: 40px;
         width: 280px;
         border-radius: 10px;
+        text-decoration: none
     }
 `;

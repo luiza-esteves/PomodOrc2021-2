@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Task from './Task';
 import {ReactComponent as Back} from '../../assets/back.svg';
-
+import './Style.css'
 import TaskForm from "./Taskform";
 import { Link } from 'react-router-dom';
 

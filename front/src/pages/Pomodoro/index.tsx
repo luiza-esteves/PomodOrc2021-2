@@ -7,7 +7,7 @@ const Pomodoro = () => {
            <Container>
                <Left></Left>
                 <Area>
-                    <Header>Pomodoro</Header>
+                    <Header>Pomodoro Independente</Header>
                         <div>
                             <Timerbuttons />
                         </div>
