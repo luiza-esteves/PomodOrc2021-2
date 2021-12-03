@@ -17,6 +17,10 @@ taskRoutes.get('/:id', (req, res) =>{
     taskController.getOneTask(req,res);
 });
 
+taskRoutes.get('/tasks/:taskListId', (req, res) =>{
+    taskController.getTasksByTasklist(req,res);
+});
+
 taskRoutes.patch('/:id', (req, res) =>{
     taskController.updateOneTask(req,res);
 });

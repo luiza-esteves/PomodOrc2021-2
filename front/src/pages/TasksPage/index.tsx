@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import './styles.css';
 import TaskList from "../../Components/Task/TaskList";
 const TaskPage = () =>{

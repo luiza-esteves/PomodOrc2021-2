@@ -9,8 +9,6 @@ const PORT = process.env.APP_PORT || 5000;
 app.use(express.json());
 
 
-
-
 databaseConnect();
 
 

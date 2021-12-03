@@ -44,6 +44,24 @@ export default class TaskController{
         }
     }
 
+    getTasksByTasklist  = async(req: Request, res: Response) => {
+        const {taskListId} = req.params;
+        const taskListVerification = await TaskList.findById(taskListId);
+            if(!taskListVerification){
+                return res.status(404).json("tasklist não encontrada");
+            }
+
+        try {
+
+            const response = await Task.find({taskListId: taskListId});
+            return res.status(200).json(response);
+
+        } catch (error) {
+            console.log(error);
+            return res.status(400).json({message: "erro ao pegar tasks"});
+        }
+    }
+
     updateOneTask = async(req: Request, res: Response) => {
         const {id} = req.params;
 
