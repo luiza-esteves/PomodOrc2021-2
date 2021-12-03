@@ -49,7 +49,7 @@ function TaskList() {
             <button className="back" >
              <Link to="/ListTasks"><Back className="back-icon" /></Link>
             </button>
-            <h1>Tarefas da lista </h1>
+            <h1>Tarefas da Lista</h1>
             <TaskForm onSubmit={addTask} />
             <Task 
                 tasks = {tasks}
