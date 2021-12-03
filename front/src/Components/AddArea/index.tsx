@@ -1,5 +1,7 @@
 import { useState, KeyboardEvent } from 'react';
 import {Container, Text } from './style';
+import Api from '../../services/Api';
+import axios from 'axios';
 
 type Props = {
     onEnter: (taskName: string) => void
@@ -7,6 +9,12 @@ type Props = {
 
 export const AddArea = ({ onEnter }: Props) => {
     const [inputText, setInputText] = useState('');
+    async function handleSubmit(){
+        
+        const response = await Api.post('/tasklist',{
+        inputText
+        })
+    }
 
     const handleKeyUp = (e: KeyboardEvent) => {
         if(e.code === 'Enter' && inputText !== '') {
@@ -14,6 +22,8 @@ export const AddArea = ({ onEnter }: Props) => {
             setInputText('');
         }
     }
+
+    
 
     return (
         <Container>
@@ -23,7 +33,7 @@ export const AddArea = ({ onEnter }: Props) => {
                 type="text"
                 placeholder="Adicione uma lista..."
                 value={inputText}
-                onChange={e=>setInputText(e.target.value)}
+                onChange={e =>setInputText(e.target.value)}
                 onKeyUp={handleKeyUp}
             />
             </Text>
