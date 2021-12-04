@@ -1,11 +1,13 @@
 import React, {createContext, ReactNode} from "react";
 import Api from "../services/Api";
 import {useState, useEffect} from 'react';
+import { idText } from "typescript";
 
 interface IContextData{
     taskLists: ITaskList[];
     refreshTaskLists : ()=>void;
     createTaskList : (title: String) => Promise<void>;
+    deleteTaskList: (id: string) => Promise<void>;
 
 }
 
@@ -16,6 +18,7 @@ interface IProviderProps{
 export const Context = createContext({} as IContextData)
 export function Provider({children}:IProviderProps){
     const [taskLists, setTaskLists] = useState<ITaskList[]>([])
+    const [tasks, setTasks] = useState<ITask[]>([])
 
     async function refreshTaskLists(){
       const response = await Api.get('/tasklist');
@@ -29,11 +32,47 @@ export function Provider({children}:IProviderProps){
         await refreshTaskLists();
     }
 
+    async function deleteTaskList(id:String) {
+        try {
+            const response = await Api.delete('tasklist/${id}',{});
+           
+            setTaskLists([...response.data]);
+
+        } catch (err) {
+            console.error({ error: err })
+        }
+
+    }
+
+    async function refreshTasks(){
+        const response = await Api.get('/task');
+     
+        setTasks([...response.data]);
+        return ;
+      }
+  
+      async function createTasks(title: String){
+          await Api.post('/tasklist', {title});
+          await refreshTasks();
+      }
+
+      async function deleteTask(id:String) {
+        try {
+            const response = await Api.delete('task/${id}',{});
+           
+            setTasks([...response.data]);
+
+        } catch (err) {
+            console.error({ error: err })
+        }
+
+    }
+
     return <Context.Provider value={{
         taskLists,
         refreshTaskLists,
-        createTaskList
-
+        createTaskList,
+        deleteTaskList,
     }}>{children}</Context.Provider>
 }
 
