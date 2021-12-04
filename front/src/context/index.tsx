@@ -8,6 +8,9 @@ interface IContextData{
     refreshTaskLists : ()=>void;
     createTaskList : (title: String) => Promise<void>;
     deleteTaskList: (id: string) => Promise<void>;
+    tasks: ITask[];
+    refreshTasks: (tasklistId: string) => Promise <void>;
+    createTasks : (title: String, tasklistId: string) => Promise<void>;
 
 }
 
@@ -44,16 +47,16 @@ export function Provider({children}:IProviderProps){
 
     }
 
-    async function refreshTasks(){
-        const response = await Api.get('/task');
+    async function refreshTasks(tasklistId: string){
+        const response = await Api.get('/task/' + tasklistId);
      
         setTasks([...response.data]);
         return ;
       }
   
-      async function createTasks(title: String){
-          await Api.post('/tasklist', {title});
-          await refreshTasks();
+      async function createTasks(title: String, tasklistId: string){
+          await Api.post('/tasklist', {title, tasklistId});
+          await refreshTasks(tasklistId);
       }
 
       async function deleteTask(id:String) {
@@ -73,6 +76,10 @@ export function Provider({children}:IProviderProps){
         refreshTaskLists,
         createTaskList,
         deleteTaskList,
+        tasks,
+        refreshTasks,
+        createTasks,
+
     }}>{children}</Context.Provider>
 }
 

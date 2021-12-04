@@ -1,29 +1,37 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import Task from './Task';
 import {ReactComponent as Back} from '../../assets/back.svg';
 import './Style.css'
 import TaskForm from "./Taskform";
 import { Link } from 'react-router-dom';
+import { Context } from '../../context'
 
-function TaskList() {
+function TaskList(props) {
 
-    
+    const { taskListId }= props
 
-    const [tasks, setTasks] = useState([]);
+    const {tasks, refreshTasks} = useContext(Context)
+
+    useEffect(()=>{
+        refreshTasks(taskListId)
+        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+    },[])
+
+    const [tasksaux, setTasks] = useState([]);
     const addTask = task => {
         //se a pessoa não digitar uma letra, não será exibida
         if(!task.text || /^\s*$/.test(task.text)){
             return ;
         }
 
-        const newTasks = [task, ...tasks];
+        const newTasks = [task, ...tasksaux];
         setTasks(newTasks);
     };
 
 
 
     const removeTask = id => {
-        const removeArr = [...tasks].filter(task => task.id !== id);
+        const removeArr = [...tasksaux].filter(task => task.id !== id);
         setTasks(removeArr);
     };
 
@@ -36,7 +44,7 @@ function TaskList() {
     };
 
     const completeTask = id => {
-        let updatedTasks = tasks.map(task =>{
+        let updatedTasks = tasksaux.map(task =>{
             if(task.id == id){
                 task.isComplete = !task.isComplete
             }

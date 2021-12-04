@@ -9,12 +9,14 @@ type Props = {
 
 export const ListItem = ({ item }: Props) => {
 
+    const route = "/tasklist/" + item._id
+
     
     return (
         <C.Container done={false}>
             
             <button>
-            <Link className="Color" to="/tasklist">{item.title}</Link>  
+            <Link className="Color" to={route}>{item.title}</Link>  
             </button>
             <TrashIcon></TrashIcon>
         </C.Container>
