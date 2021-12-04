@@ -14,7 +14,7 @@ const ListTasks = () => {
   
   const [list, setList] = useState<Item[]>([
   ]);
-  const {taskLists, refreshTaskLists, createTaskList} = useContext(Context);
+  const {taskLists, refreshTaskLists, createTaskList, deleteTaskList} = useContext(Context);
 
   useEffect(() => {
     refreshTaskLists();
@@ -54,7 +54,6 @@ const ListTasks = () => {
               <ListItem 
               key={index} 
               item={item}
-              //onChange={handleTaskChange} 
               />
             ))}
           </Area>
