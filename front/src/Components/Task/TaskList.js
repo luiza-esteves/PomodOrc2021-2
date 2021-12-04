@@ -1,20 +1,21 @@
 import React, {useState, useContext, useEffect} from 'react';
 import Task from './Task';
 import {ReactComponent as Back} from '../../assets/back.svg';
-import './Style.css'
+import './Style.css';
 import TaskForm from "./Taskform";
-import { Link } from 'react-router-dom';
-import { Context } from '../../context'
+import { Link, useParams } from 'react-router-dom';
+import { Context } from '../../context';
 
 function TaskList(props) {
 
-    const { taskListId }= props
 
-    const {tasks, refreshTasks} = useContext(Context)
+    const params = useParams()
+
+    const {tasks, refreshTasks, createTasks} = useContext(Context)
 
     useEffect(()=>{
-        refreshTasks(taskListId)
-        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        refreshTasks(params.taskListId);
+        console.log({params})
     },[])
 
     const [tasksaux, setTasks] = useState([]);
@@ -24,8 +25,10 @@ function TaskList(props) {
             return ;
         }
 
-        const newTasks = [task, ...tasksaux];
-        setTasks(newTasks);
+        // const newTasks = [task, ...tasksaux];
+        // setTasks(newTasks);
+        console.log(typeof(task.text))
+        createTasks(task.text, params.taskListId)
     };
 
 

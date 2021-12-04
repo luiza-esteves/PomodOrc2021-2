@@ -29,7 +29,7 @@ const Task = ({tasks, completeTask, updateTask,removeTask}) => {
             key={index}
             >
             <div className = "name" key={task.id} onClick={() => completeTask(task.id)}>
-                {task.text}
+                {task.title}
             </div>
             <div className='icons'>
                 <Close onClick={() => removeTask(task.id)} className='delete-icon'/>

@@ -8,11 +8,13 @@ export default class TaskController{
         try { 
             
             const taskListVerification = await TaskList.findById(taskListId);
+            console.log(taskListVerification)
+            console.log(taskListId)
             if(!taskListVerification){
                 return res.status(404).json("tasklist não encontrada");
             }
             await Task.create(req.body);
-            
+
             return res.status(200).json({message: "Task criada com sucesso"});
         } catch (error) { 
             console.log(error); 
@@ -54,6 +56,7 @@ export default class TaskController{
         try {
 
             const response = await Task.find({taskListId: taskListId});
+            console.log({response})
             return res.status(200).json(response);
 
         } catch (error) {
