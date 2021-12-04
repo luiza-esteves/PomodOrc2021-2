@@ -11,7 +11,7 @@ const Router = () => {
             <Route path="/" element={<Home/>} />
             <Route path="/ListTasks" element={<ListTasks/>} />
             <Route path="/pomodoro" element={<Pomodoro/>} />
-            <Route path="/tasklist" element={<TaskList />} />
+            <Route path="/tasklist/:tasklistId" element={<TaskList />} />
         </Routes>
         </BrowserRouter>
     )

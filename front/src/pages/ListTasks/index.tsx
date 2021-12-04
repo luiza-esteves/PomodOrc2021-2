@@ -1,31 +1,23 @@
-import { useState, useContext} from 'react';
+import { useState } from 'react';
 import { Container, Area, Header, Left, Right } from './style';
 import { Item } from '../../types/Item';
 import { ListItem } from '../../Components/ListItem';
 import { AddArea } from '../../Components/AddArea';
 import { HomeIcon } from '../../Components/HomeIcon';
 import '../../App.css';
-import { Context } from '../../context';
-import { useEffect } from 'react';
-import { title } from 'process';
 
 const ListTasks = () => {
-
-  
   const [list, setList] = useState<Item[]>([
   ]);
-  const {taskLists, refreshTaskLists, createTaskList} = useContext(Context);
 
-  useEffect(() => {
-    refreshTaskLists();
-
-  },[]);
-
-  const handleAddTask = (title: string) => {
-    let aux = title;
-    if (aux.trim()!== ""){
-      createTaskList(title);
-    }
+  const handleAddTask = (taskName: string) => {
+    let newList = [...list];
+    newList.push({
+      id: list.length + 1,
+      name: taskName,
+      done: false
+    });
+    setList(newList);
   };
 
   const handleTaskChange = (id: number, done: boolean) => {
@@ -50,11 +42,11 @@ const ListTasks = () => {
 
             <AddArea onEnter={handleAddTask} />
 
-            {taskLists.map((item,index)=>(
+            {list.map((item, index)=>(
               <ListItem 
               key={index} 
               item={item}
-              //onChange={handleTaskChange} 
+              onChange={handleTaskChange} 
               />
             ))}
           </Area>
