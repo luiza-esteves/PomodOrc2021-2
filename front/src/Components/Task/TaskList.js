@@ -13,48 +13,47 @@ function TaskList(props) {
 
     const params = useParams()
 
-    const {tasks, refreshTasks, createTasks, deleteTask} = useContext(Context)
+    const {tasks, refreshTasks, createTasks, deleteTask, checkTask} = useContext(Context)
 
     useEffect(()=>{
         refreshTasks(params.taskListId);
-        console.log(id)
+     
     },[])
 
     const [tasksaux, setTasks] = useState([]);
     const addTask = task => {
         //se a pessoa não digitar uma letra, não será exibida
-        if(!task.text || /^\s*$/.test(task.text)){
+        if(!task.title || /^\s*$/.test(task.title)){
             return ;
         }
 
         // const newTasks = [task, ...tasksaux];
         // setTasks(newTasks);
-        createTasks(task.text, params.taskListId)
+        createTasks(task.title, params.taskListId)
     };
 
 
 
     const removeTask = id => {
-        console.log(id)
-        const removeArr = [...tasksaux].filter(task => task.id !== id);
+        const removeArr = [...tasksaux].filter(task => task._id !== id);
         setTasks(removeArr);
        
-        console.log({id})
         deleteTask(id, params.taskListId)
     };
 
     const updateTask = (taskId, newValue) => {
-        if(!newValue.text || /^\s*$/.test(newValue.text)){
+        if(!newValue.title || /^\s*$/.test(newValue.title)){
             return ;
         }
 
-        setTasks(prev => prev.map(item => (item.id == taskId ? newValue : item)));
+        setTasks(prev => prev.map(item => (item._id == taskId ? newValue : item)));
     };
 
     const completeTask = id => {
-        let updatedTasks = tasksaux.map(task =>{
-            if(task.id == id){
-                task.isComplete = !task.isComplete
+        let updatedTasks = tasks.map(task =>{
+            if(task._id == id){
+                checkTask(task._id, task.taskListId, task.estado)
+                task.estado = !task.estado
             }
             return task
         })

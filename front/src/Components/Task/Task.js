@@ -4,6 +4,7 @@ import {ReactComponent as Close} from '../../assets/close.svg';
 import {ReactComponent as CLock} from '../../assets/clock.svg';
 import {ReactComponent as Edit} from '../../assets/edit.svg';
 import { Link } from "react-router-dom";
+import { Text } from "./styles";
 
 const Task = ({tasks, completeTask, updateTask,removeTask}) => {
     const [edit, setEdit] = useState({
@@ -27,11 +28,16 @@ const Task = ({tasks, completeTask, updateTask,removeTask}) => {
     console.log({tasks})
     return tasks.map((task, index) =>(
         <div
-            className={task.isComplete ? 'task-row complete' : 'task-row'}
+            className={task.estado ? 'task-row complete' : 'task-row'}
             key={index}
             >
-            <div className = "name" key={task._id} onClick={() => completeTask(task._id)}>
+            <div className = "name" key={task._id}
+            
+            onClick={() => completeTask(task._id)}>
+                
                 {task.title}
+             
+
             </div>
             <div className='icons'>
                 <Close onClick={() => removeTask({id: task._id})} className='delete-icon'/>

@@ -9,7 +9,6 @@ const TaskPage = (props: any) => {
             <div className="borda-left"></div>
             <div className="taskList">
                 <TaskList tasklistId={tasklistId} />
-                { console.log(tasklistId) }
             </div>
             <div className="borda-right"></div>
         </div>

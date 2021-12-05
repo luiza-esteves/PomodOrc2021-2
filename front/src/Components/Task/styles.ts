@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 
 type ContainerProps = {
-    done: boolean;
+    estado: boolean;
 }
 
-export const Container = styled.div(({done}: ContainerProps) => (`
+export const Text = styled.div(({ estado }: ContainerProps) => (`
+color: #1C1C1C;
+text-decoration: ${estado ? 'line-through' : 'initial'};
+width:20px;
+
+`));
+
+export const Container = styled.div(({ estado }: ContainerProps) => (`
 display: flex;
 background-color: #DBD5D0;
 padding: 18px;
@@ -20,7 +27,7 @@ input{
 
 label{
     color: #1C1C1C;
-    text-decoration: ${done ? 'line-through' : 'initial' };
+    text-decoration: ${estado ? 'line-through' : 'initial'};
     width:20px;
 }
 

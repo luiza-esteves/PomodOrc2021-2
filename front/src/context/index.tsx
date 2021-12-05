@@ -12,6 +12,7 @@ interface IContextData {
     refreshTasks: (tasklistId: string) => Promise<void>;
     createTasks: (title: string, tasklistId: string) => Promise<void>;
     deleteTask: (id: string, taskListId: string) => Promise<void>
+    checkTask: (id: string, taskListId: string, state: boolean) => Promise<void>
 }
 
 interface IProviderProps {
@@ -63,7 +64,6 @@ export function Provider({ children }: IProviderProps) {
     async function deleteTask(id: string, taskListId: string) {
         try {
             const testandoumamerda = id.toString()
-            console.log({ test: id })
             const response = await Api.delete(`/task/${testandoumamerda}`, { data: { id } });
 
             refreshTasks(taskListId)
@@ -75,6 +75,17 @@ export function Provider({ children }: IProviderProps) {
 
     }
 
+    async function checkTask(id: string, taskListId: string, state: boolean) {
+        try {
+            await Api.patch(`/task/${id}`, {estado: !state })
+
+            refreshTasks(taskListId)
+
+        } catch (error) {
+            console.error({error})
+        }
+    }
+
     return <Context.Provider value={{
         taskLists,
         refreshTaskLists,
@@ -84,6 +95,7 @@ export function Provider({ children }: IProviderProps) {
         refreshTasks,
         createTasks,
         deleteTask,
+        checkTask,
 
     }}>{children}</Context.Provider>
 }
