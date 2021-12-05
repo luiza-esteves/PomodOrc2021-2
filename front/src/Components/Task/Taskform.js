@@ -39,7 +39,7 @@ function TaskForm(props) {
             ):(
                 <>
                     <input type="text"
-                        placeholder="Adicone uma tarefa" 
+                        placeholder="Adicione uma tarefa" 
                         value={input}
                         name="text" 
                         className="task-input"
