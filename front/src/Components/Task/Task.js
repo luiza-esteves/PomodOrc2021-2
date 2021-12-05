@@ -25,7 +25,6 @@ const Task = ({tasks, completeTask, updateTask,removeTask}) => {
         return <TaskForm edit={edit} onSubmit={submitUpdate}/>;
     }
 
-    console.log({tasks})
     return tasks.map((task, index) =>(
         <div
             className={task.estado ? 'task-row complete' : 'task-row'}

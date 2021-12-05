@@ -27,5 +27,10 @@ export const Container = styled.div(({ done }: ContainerProps)=>(
     .Color{
         color: black;
     }
+
+    .Trash{
+        align-self: flex-end
+        
+    }
 `
 ));

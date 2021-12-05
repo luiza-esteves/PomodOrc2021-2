@@ -14,7 +14,7 @@ const ListTasks = () => {
 
   useEffect(() => {
     refreshTaskLists();
-
+    
   },[]);
 
   const handleAddTask = (title: string) => {

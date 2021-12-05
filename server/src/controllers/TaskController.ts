@@ -9,8 +9,7 @@ export default class TaskController{
         try { 
             
             const taskListVerification = await TaskList.findById(taskListId);
-            console.log(taskListVerification)
-            console.log(taskListId)
+            
             if(!taskListVerification){
                 return res.status(404).json("tasklist não encontrada");
             }
@@ -57,7 +56,7 @@ export default class TaskController{
         try {
 
             const response = await Task.find({taskListId: taskListId});
-            console.log({response})
+            
             return res.status(200).json(response);
 
         } catch (error) {
@@ -85,12 +84,11 @@ export default class TaskController{
 
     deleteOneTask = async(req: Request, res: Response) => {
         const id = req.body.id;
-        console.log({id})
-        // console.log(new ObjectId(id))
+    
 
         try {
             // const test = await Task.findById(id.id)
-            // console.log({testando:test})
+        
             await Task.findByIdAndDelete(id.id);
             return res.status(200).json({message: "task deletada com sucesso"});
 

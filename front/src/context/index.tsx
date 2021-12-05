@@ -38,9 +38,9 @@ export function Provider({ children }: IProviderProps) {
 
     async function deleteTaskList(id: string) {
         try {
-            const response = await Api.delete('tasklist/${id}', {});
+            const response = await Api.delete(`tasklist/${id}`, {});
 
-            setTaskLists([...response.data]);
+            refreshTaskLists()
 
         } catch (err) {
             console.error({ error: err })
@@ -57,6 +57,7 @@ export function Provider({ children }: IProviderProps) {
     }
 
     async function createTasks(title: string, taskListId: string) {
+        console.log('chamou createTasks')
         const aux = await Api.post('/task', { title: title, taskListId: taskListId, estado: false, tempo: 0 });
         await refreshTasks(taskListId);
     }

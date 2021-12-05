@@ -23,13 +23,16 @@ function TaskList(props) {
     const [tasksaux, setTasks] = useState([]);
     const addTask = task => {
         //se a pessoa não digitar uma letra, não será exibida
-        if(!task.title || /^\s*$/.test(task.title)){
+        if(!task.text || /^\s*$/.test(task.text)){
+            console.log('entrou na condição')
+            console.log({task})
             return ;
         }
 
         // const newTasks = [task, ...tasksaux];
         // setTasks(newTasks);
-        createTasks(task.title, params.taskListId)
+        console.log('chamou AddTask')
+        createTasks(task.text, params.taskListId)
     };
 
 
