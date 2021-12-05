@@ -29,8 +29,9 @@ export const Container = styled.div(({ done }: ContainerProps)=>(
     }
 
     .Trash{
+        max-width: 40px;
         align-self: flex-end
-        
+
     }
 `
 ));
