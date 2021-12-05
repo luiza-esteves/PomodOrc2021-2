@@ -1,12 +1,12 @@
 interface ITaskList{
-    _id: String,
-    title: String
+    _id: string,
+    title: string
 }
 
 interface ITask{
-    _id: String,
-    title: String,
+    _id: string,
+    title: string,
     estado: boolean,
     tempo: number,
-    taskListId: String
+    taskListId: string
 }

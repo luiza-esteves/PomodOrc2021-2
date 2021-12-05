@@ -5,17 +5,19 @@ import './Style.css';
 import TaskForm from "./Taskform";
 import { Link, useParams } from 'react-router-dom';
 import { Context } from '../../context';
+import Api from '../../services/Api';
 
 function TaskList(props) {
 
+    const { id } = props
 
     const params = useParams()
 
-    const {tasks, refreshTasks, createTasks} = useContext(Context)
+    const {tasks, refreshTasks, createTasks, deleteTask} = useContext(Context)
 
     useEffect(()=>{
         refreshTasks(params.taskListId);
-        console.log({params})
+        console.log(id)
     },[])
 
     const [tasksaux, setTasks] = useState([]);
@@ -27,15 +29,18 @@ function TaskList(props) {
 
         // const newTasks = [task, ...tasksaux];
         // setTasks(newTasks);
-        console.log(typeof(task.text))
         createTasks(task.text, params.taskListId)
     };
 
 
 
     const removeTask = id => {
+        console.log(id)
         const removeArr = [...tasksaux].filter(task => task.id !== id);
         setTasks(removeArr);
+       
+        console.log({id})
+        deleteTask(id, params.taskListId)
     };
 
     const updateTask = (taskId, newValue) => {

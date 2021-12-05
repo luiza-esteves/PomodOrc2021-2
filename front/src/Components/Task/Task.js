@@ -12,29 +12,31 @@ const Task = ({tasks, completeTask, updateTask,removeTask}) => {
     });
 
     const submitUpdate = value => {
-        updateTask(edit.id, value)
+        updateTask(edit._id, value)
         setEdit({
             id: null,
             value: ''
         })
     }
-
-    if(edit.id){
+;
+    
+    if(edit._id){
         return <TaskForm edit={edit} onSubmit={submitUpdate}/>;
     }
 
+    console.log({tasks})
     return tasks.map((task, index) =>(
         <div
             className={task.isComplete ? 'task-row complete' : 'task-row'}
             key={index}
             >
-            <div className = "name" key={task.id} onClick={() => completeTask(task.id)}>
+            <div className = "name" key={task._id} onClick={() => completeTask(task._id)}>
                 {task.title}
             </div>
             <div className='icons'>
-                <Close onClick={() => removeTask(task.id)} className='delete-icon'/>
+                <Close onClick={() => removeTask({id: task._id})} className='delete-icon'/>
                 <Edit
-                    onClick={() => setEdit({ id: task.id, value: task.text})}
+                    onClick={() => setEdit({ id: task._id, value: task.text})}
                     className='edit-icon'
                 />
                  <Link to="/pomodoro"> <CLock className='clock-icon'/> </Link>

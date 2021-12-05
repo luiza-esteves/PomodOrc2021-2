@@ -1,6 +1,7 @@
 import {Request, Response} from 'express';
 import Task from '../models/taskSchema';
 import TaskList from '../models/taskListSchema';
+import { ObjectId  } from 'mongoose';
 
 export default class TaskController{
     createTask = async(req: Request, res: Response) => {
@@ -83,14 +84,18 @@ export default class TaskController{
     }
 
     deleteOneTask = async(req: Request, res: Response) => {
-        const {id} = req.params;
+        const id = req.body.id;
+        console.log({id})
+        // console.log(new ObjectId(id))
 
         try {
-            await Task.findByIdAndDelete(id);
+            // const test = await Task.findById(id.id)
+            // console.log({testando:test})
+            await Task.findByIdAndDelete(id.id);
             return res.status(200).json({message: "task deletada com sucesso"});
 
         } catch (error) {
-            console.log(error);
+            console.log(error.message);
             return res.status(400).json({message: "erro ao deletar a task"});
         }
     }

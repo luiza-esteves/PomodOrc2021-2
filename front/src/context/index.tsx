@@ -6,12 +6,12 @@ import { idText } from "typescript";
 interface IContextData {
     taskLists: ITaskList[];
     refreshTaskLists: () => void;
-    createTaskList: (title: String) => Promise<void>;
+    createTaskList: (title: string) => Promise<void>;
     deleteTaskList: (id: string) => Promise<void>;
     tasks: ITask[];
     refreshTasks: (tasklistId: string) => Promise<void>;
-    createTasks: (title: String, tasklistId: string) => Promise<void>;
-
+    createTasks: (title: string, tasklistId: string) => Promise<void>;
+    deleteTask: (id: string, taskListId: string) => Promise<void>
 }
 
 interface IProviderProps {
@@ -30,12 +30,12 @@ export function Provider({ children }: IProviderProps) {
         return;
     }
 
-    async function createTaskList(title: String) {
+    async function createTaskList(title: string) {
         await Api.post('/tasklist', { title });
         await refreshTaskLists();
     }
 
-    async function deleteTaskList(id: String) {
+    async function deleteTaskList(id: string) {
         try {
             const response = await Api.delete('tasklist/${id}', {});
 
@@ -50,27 +50,27 @@ export function Provider({ children }: IProviderProps) {
     async function refreshTasks(tasklistId: string) {
         const response = await Api.get('/task/tasks/' + tasklistId);
 
-        console.log(typeof(response.data))
-        console.log({response})
-        
-            setTasks([...response.data]);
+
+        setTasks([...response.data]);
         return;
     }
 
-    async function createTasks(title: String, taskListId: string) {
-        const aux = await Api.post('/task', { title:title, taskListId:taskListId, estado:false, tempo:0 });
-        console.log({response:aux.data})
+    async function createTasks(title: string, taskListId: string) {
+        const aux = await Api.post('/task', { title: title, taskListId: taskListId, estado: false, tempo: 0 });
         await refreshTasks(taskListId);
     }
 
-    async function deleteTask(id: String) {
+    async function deleteTask(id: string, taskListId: string) {
         try {
-            const response = await Api.delete('task/${id}', {});
+            const testandoumamerda = id.toString()
+            console.log({ test: id })
+            const response = await Api.delete(`/task/${testandoumamerda}`, { data: { id } });
 
-            setTasks([...response.data]);
+            refreshTasks(taskListId)
+            // setTasks([...response.data]);
 
-        } catch (err) {
-            console.error({ error: err })
+        } catch (error) {
+            console.error({ error: error })
         }
 
     }
@@ -83,6 +83,7 @@ export function Provider({ children }: IProviderProps) {
         tasks,
         refreshTasks,
         createTasks,
+        deleteTask,
 
     }}>{children}</Context.Provider>
 }
